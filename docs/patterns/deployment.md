@@ -118,6 +118,7 @@ WORKDIR /app
 # Cache packages installation
 COPY package.json package.json
 COPY bun.lockb bun.lockb
+COPY tsconfig.json ./tsconfig.json
 
 RUN bun install
 
@@ -172,9 +173,13 @@ WORKDIR /app
 # Cache packages
 COPY package.json package.json
 COPY bun.lockb bun.lockb
+COPY tsconfig.json ./tsconfig.json
 
 COPY /apps/server/package.json ./apps/server/package.json
+COPY /apps/server/tsconfig.json ./apps/server/tsconfig.json
+
 COPY /packages/config/package.json ./packages/config/package.json
+COPY /packages/config/tsconfig.json ./packages/config/tsconfig.json
 
 RUN bun install
 
